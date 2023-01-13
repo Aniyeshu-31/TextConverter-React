@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 function App() {
   const[myColor,setColorbtn]=useState({
     color:'black',
@@ -48,28 +48,28 @@ function App() {
   }
   return (
      <>
-     {/* <BrowserRouter> */}
-       {/* <Routes> */}
-        {/* <Route exact path='/' element={ */}
-          {/* <> */}
+     <BrowserRouter>
+       <Routes>
+        <Route exact path='/' element={
+           <> 
            <Navbar title="TextConverterApp" aboutText="About us" mode={mode} toggleMode={toggleMode} btnText={btnText} myStyle={myColor}/>
            <div className='container'>
            <Alert alert={alert}/>   
-          <TextForm showAlertMessage={alert} heading={"Enter the Text to Analyze below"} mode={mode}/>
+          <TextForm showAlertMessage={showAlertMessage} heading={' Try - TextConverter : Word Counter , Character Counter , Remove Extra Spaces'} mode={mode}/>
         </div>
-        {/* </> */}
-        {/* }/> */}
-        {/* <Route exact path='/aboutus' element={ */}
-         {/* <> */}
-            {/* <Navbar title="TextConverter-AboutUs" aboutText="About us" mode={mode} toggleMode={toggleMode} btnText={btnText} myStyle={myColor} /> */}
-            <div className="container my-4">
-            <Alert alert={alert}/>
-            {/* <About title="TextConverter Application"/> */}
-            </div>
-         {/* </> */}
-         {/* }/> */}
-       {/* </Routes> */}
-     {/* </BrowserRouter> */}
+         </> 
+        }/>
+        <Route exact path="/aboutus" element={
+          <> 
+          <Navbar title="TextConverter-AboutUs" aboutText="About us" mode={mode} toggleMode={toggleMode} btnText={btnText} myStyle={myColor} />
+          <div className="container my-4">
+          <Alert alert={alert}/>
+          <About title="TextConverter Application" mode={mode}/>
+          </div>
+       </>
+        }/>
+       </Routes>
+      </BrowserRouter>
      </>
   );
 }
