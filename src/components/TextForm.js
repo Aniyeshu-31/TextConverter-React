@@ -43,7 +43,7 @@ export default function TextForm(props) {
         setText(event.target.value)
      }
       // text = "seunsf" // Wrong way to update the state
-    const newLength = (text==="")?0:text.split(" ").filter((element)=>{return element.length!==0}).length;    // filter() is a higher order array method
+    const newLength = (text==="")?0:text.split(/\s+/g).filter((element)=>{return element.length!==0}).length;    // filter() is a higher order array method
     const handleCopy=()=>{
       let text=document.getElementById('myBox');
       text.select();

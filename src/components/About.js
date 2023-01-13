@@ -31,7 +31,7 @@ export default function About(props) {
       color:props.mode==='dark'?'white':'#192b8a',
       backgroundColor: props.mode ==='dark'?'#192b8a':'white',
       border:'2px solid',
-      borderColor: props.mode ==='dark'?'white':'#192b8a'
+      borderColor: props.mode ==='dark'?'white':'#192b8a',
     }
     const textstyle={
       color:props.mode==='dark'?'white':'black'
