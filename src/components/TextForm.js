@@ -12,6 +12,12 @@ export default function TextForm(props) {
        setText(newText);
        props.showAlertMessage("Your text is Converted to UpperCase","success");
      }
+     const removePunctuation= ()=>{
+
+      let newText = text.replace(/\p{P}/gu,"");
+      setText(newText);
+      props.showAlertMessage("Punctuations has been removed","success");
+     }
      const handlelowClick = ()=>{
        console.log('handlelowClick was clicked');
        let newText = text.toLowerCase();
@@ -66,6 +72,7 @@ export default function TextForm(props) {
         <button disabled={text.length===0} className='btn btn-success mx-1 my-1' style={{cursor:'pointer'}} onClick={handleAlternateCaseClick}>ConvertToAlternateCase</button>
         <button disabled={text.length===0} className='btn btn-success mx-1 my-1' style={{cursor:'pointer'}} onClick={handleCopy}>CopyText</button>
         <button disabled={text.length===0} className='btn btn-success mx-1 my-1' style={{cursor:'pointer'}} onClick={handleRemoveExtraSpaces}>RemoveExtraSpaces</button>
+        <button disabled={text.length===0} className='btn btn-success mx-1 my-1' style={{cursor:'pointer'}} onClick={removePunctuation}>RemovePunctuation</button>
     </div>
     <div className='container my-4' style={{color:props.mode==='dark'?'white':'black'}}>
         <h1 style={{fontFamily:'serif'}}>Your Text Summary</h1>
